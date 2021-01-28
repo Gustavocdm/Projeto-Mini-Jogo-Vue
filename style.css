@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    padding: 20px 0px;
+    margin: 30px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 1px #afafaf;
+}
+
+.flex {
+    display: flex;
+}
+
+.fdirection-col {
+    flex-direction: column;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.player-info {
+    width: 35%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.player-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.life-bar {
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.life-progress {
+    height: 100%;;
+}
+
+.player-percentage {
+    font-weight: bold;
+}
+
+.ele-mr *:not(:last-child) {
+    margin-right: 10px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-atk {
+    background-color: red;
+    color: white;
+}
+
+.btn-spc {
+    background-color: yellow;
+}
+
+.btn-heal {
+    background-color: green;
+    color: white;
+}
+
+.btn-begin {
+    background-color: blue;
+    color: white;
+}
+
+.log-msg {
+    color: white;;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 5px 10px;
+}
+
+.log-player {
+    background-color: purple;
+}
+
+.log-monster {
+    background-color: red;
+}
+
+.text-center {
+    text-align: center;
+}

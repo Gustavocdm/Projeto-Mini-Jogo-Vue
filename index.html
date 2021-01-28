@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1º Projeto Vue.js</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="https://unpkg.com/vue"></script>
+    
+</head>
+<body>
+    <div id="vue">
+
+        <div class="card flex justify-around">
+
+            <div class="player-info">
+                <span class="player-name">Jogador</span>
+                <div class="life-bar">
+                    <div class="life-progress" :style="{width: playerLife + '%', backgroundColor: lifeColor(playerLife)}"></div>
+                </div>
+                <span class="player-percentage">{{ playerLife + '%' }}</span>
+            </div>
+
+            <div class="player-info">
+                <span class="player-name">Monstro</span>
+                <div class="life-bar">
+                    <div class="life-progress" :style="{width: monsterLife + '%', backgroundColor: lifeColor(monsterLife)}"></div>
+                </div>
+                <span class="player-percentage">{{ monsterLife + '%' }}</span>
+            </div>
+
+        </div>
+
+
+        <div class="card text-center" v-if="finalizou">
+            <span style="color: #cccccc;" v-if="playerLife == 0 && monsterLife == 0">Empate!</span>
+            <span style="color: red;" v-else-if="playerLife == 0">Você perdeu!</span>
+            <span style="color: green;" v-else>Você ganhou!</span>
+        </div>
+
+
+        <div class="card flex justify-center ele-mr">
+            <template v-if="emJogo">
+                <button class="btn btn-atk" @click="onAttack()">ATAQUE</button>
+                <button class="btn btn-spc" @click="onSpecial()">ATAQUE ESPECIAL</button>
+                <button class="btn btn-heal" @click="onHeal()">CURAR</button>
+                <button class="btn" @click="onBeginEndGame()">DESISTIR</button>
+            </template>
+            <button class="btn btn-begin" v-else @click="onBeginEndGame()">INICIAR PARTIDA</button>
+        </div>
+
+
+        <div class="card flex fdirection-col" v-if="log.length > 0">
+            <template v-for="l in log">
+                <div class="log-msg" :class="l.quem == 'monstro' ? 'log-monster' : 'log-player'" v-if="l.oq == 'dano'">
+                    O {{ l.quem == 'monstro' ? 'jogador' : 'monstro' }} causou {{ l.qtd }} de dano ao {{ l.quem }}.
+                </div>
+                <div class="log-msg log-player" v-else>
+                    O Jogador se curou em {{ l.qtd }} pontos.
+                </div>
+            </template>
+        </div>
+
+    </div>    
+
+    <script src="script.js"></script>
+</body>
+</html>
